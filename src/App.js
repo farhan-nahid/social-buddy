@@ -1,10 +1,38 @@
-import './App.css';
+import {
+  BrowserRouter as Router,
+
+  Route, Switch
+} from "react-router-dom";
+import Footer from "./Components/Footer/Footer";
+import Home from './Components/Home/Home';
+import NavBar from './Components/NavBar/NavBar';
+import NotFound from "./Components/NotFound/NotFound";
+import PostComments from "./Components/PostComments/PostComments";
+import SinglePost from "./Components/SinglePost/SinglePost";
 
 function App() {
   return (
-    <div>
-     
-    </div>
+    <Router>
+      <NavBar />
+      <Switch>
+          <Route path='/home'>
+              <Home />
+          </Route>
+          <Route path='/post'>
+            <SinglePost />
+          </Route>
+          <Route path="/post/:id">
+            <PostComments />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+      </Switch>
+     <Footer />
+    </Router>
   );
 }
 
