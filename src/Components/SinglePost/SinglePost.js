@@ -12,11 +12,11 @@ const SinglePost = (props) => {
         history.push(url)
     }
     return (    
-            <Card>
-                  <h1>this is post {id}</h1>
+            <Card className="col-md-4 ">
+                  <h1>This is Post {id}</h1>
              <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Text> {body} </Card.Text>
+                    <Card.Title>Title: {title}</Card.Title>
+                    <Card.Text> Body: {body} </Card.Text>
                     <Button onClick={() => handleClick(id)} variant="primary">More Details</Button>
                 </Card.Body>
             </Card>

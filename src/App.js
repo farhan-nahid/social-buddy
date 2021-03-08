@@ -8,7 +8,6 @@ import Home from './Components/Home/Home';
 import NavBar from './Components/NavBar/NavBar';
 import NotFound from "./Components/NotFound/NotFound";
 import PostComments from "./Components/PostComments/PostComments";
-import SinglePost from "./Components/SinglePost/SinglePost";
 
 function App() {
   return (
@@ -17,9 +16,6 @@ function App() {
       <Switch>
           <Route path='/home'>
               <Home />
-          </Route>
-          <Route path='/post'>
-            <SinglePost />
           </Route>
           <Route path="/post/:id">
             <PostComments />

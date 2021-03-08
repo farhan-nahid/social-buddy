@@ -9,13 +9,17 @@ const Home = () => {
         .then(res => res.json())
         .then(data => setPosts(data))
    },[])
-   console.log(posts);
+ //  console.log(posts);
     return (
         <div>
             <h1>My Total Posts :{posts.length} </h1>
-            {
+            <div className="container">
+                <div className="row">
+                {
                 posts.map(post=> <SinglePost key={post.id}  post ={post}/>)
-            }
+                }
+                </div>
+            </div>
         </div>
     );
 };

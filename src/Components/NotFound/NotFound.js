@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 
 const NotFound = () => {
-    const [show, setShow] = useState(true);
+    const [show] = useState(true);
 
   if (show) {
     return (
