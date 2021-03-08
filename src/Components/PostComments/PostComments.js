@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Jumbotron, ListGroup } from 'react-bootstrap';
+import { Container, Jumbotron } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import SingleInformation from '../SingleInformation/SingleInformation';
 
 const PostComments = () => {
     const {id}=useParams()
@@ -8,8 +9,7 @@ const PostComments = () => {
     const [posts , setPosts] = useState({})
     const {title,body}=posts
 
-    const [comments , setComments] = useState({})
-    const[name,email]=comments
+  
 
     useEffect(()=>{
         const url =`https://jsonplaceholder.typicode.com/posts/${id}`
@@ -18,31 +18,20 @@ const PostComments = () => {
         .then(data => setPosts(data))
     },[id])
 
-    useEffect(()=>{
-        const url =`https://jsonplaceholder.typicode.com/comments/${id}`
-        fetch (url)
-        .then (res => res.json())
-        .then(data => setComments(data))
-    },[id])
+   
 
    //console.log(posts);
     return (
         <div>
-           <h5> User id: {id}</h5>
+           <h4 className="text-danger mt-4"> User id: {id}</h4>
             <p></p>
             <Jumbotron fluid>
                  <Container>
-                        <h1>{title}</h1>
-                        <p>{body}  </p>
+                        <h3>Title : {title}</h3>
+                        <p>Body : {body}  </p>
                      </Container>
                 </Jumbotron>
-                <ListGroup>
-                    <ListGroup.Item>{name}</ListGroup.Item>
-                    <ListGroup.Item>{email}</ListGroup.Item>
-                    <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                    <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                </ListGroup>
+              <SingleInformation id={id}/>
         </div>
     );
 };
